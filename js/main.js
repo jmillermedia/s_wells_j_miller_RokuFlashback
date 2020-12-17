@@ -1,6 +1,6 @@
 // JAVASCRIPT START
 import { fetchdata } from "./modules/Data.js";
-import portfolioPiece from "./modules/PortfolioPiece.js";
+import allMovies from "./modules/allMovies.js";
 import TheLightboxVideo from "./modules/TheLightboxVideo.js";
 import TheLightboxImages from "./modules/TheLightboxImages.js";
 
@@ -8,17 +8,16 @@ import TheLightboxImages from "./modules/TheLightboxImages.js";
 
     let vue_vm = new Vue({
         data: {
-            pieces: [],
-            currentPortfolioData: {},
+            movie: {},
+            movies: [],
+            currentMovieData: {},
             activeComponent: null,
-            piece: {},
-            visibleSoc: false
         },
         
         mounted: function() {
-            fetchdata('./includes/index.php')
+            fetchdata('./includes/read.php')
                 .then(data => {
-                    data.forEach(piece => this.pieces.push(piece));
+                    data.forEach(movie => this.movies.push(movie));
                 })
                 .catch(err => console.error(err));
         },
@@ -30,7 +29,7 @@ import TheLightboxImages from "./modules/TheLightboxImages.js";
                 this.activeComponent = `lightbox${target.Type}`;
                 document.querySelector('.lightbox').classList.remove('hidden');
                 document.documentElement.style.overflow = 'hidden';
-                this.piece = target;
+                this.movie = target;
             },
 
             hide() {
@@ -41,7 +40,7 @@ import TheLightboxImages from "./modules/TheLightboxImages.js";
         },
 
         components: {
-            "piece-thumb": portfolioPiece,
+            "allmovies": allMovies,
             "lightboxvideo": TheLightboxVideo,
             "lightboximages": TheLightboxImages
         },
@@ -50,31 +49,31 @@ import TheLightboxImages from "./modules/TheLightboxImages.js";
 })();
 
 
-(() => {
-    // hamburger menu functions
-    let burgerButton = document.querySelector('.burgerButton'),
-        socialsButton = document.querySelector('.socials__button'),
-        socialButtons = document.querySelector('.socials__ul');
-        // debugger;
-    function burgerMenuExpand(){
-        document.querySelector('.burgerNav').classList.toggle('hidden');
-        document.querySelector('.burgerButton').classList.toggle('closeBurger');
-    }
+// (() => {
+//     // hamburger menu functions
+//     let burgerButton = document.querySelector('.burgerButton'),
+//         socialsButton = document.querySelector('.socials__button'),
+//         socialButtons = document.querySelector('.socials__ul');
+//         // debugger;
+//     function burgerMenuExpand(){
+//         document.querySelector('.burgerNav').classList.toggle('hidden');
+//         document.querySelector('.burgerButton').classList.toggle('closeBurger');
+//     }
 
-    function scrollClose() {
-        if (document.querySelector('.burgerNav').classList.contains('hidden'))
-        return;
-        document.querySelector('.burgerNav').classList.toggle('hidden');
-        document.querySelector('.burgerButton').classList.toggle('closeBurger');
-    }
+//     function scrollClose() {
+//         if (document.querySelector('.burgerNav').classList.contains('hidden'))
+//         return;
+//         document.querySelector('.burgerNav').classList.toggle('hidden');
+//         document.querySelector('.burgerButton').classList.toggle('closeBurger');
+//     }
 
-    function animateSocialButtons() {
-        socialButtons.classList.toggle('shown');
-        }
+//     function animateSocialButtons() {
+//         socialButtons.classList.toggle('shown');
+//         }
 
-    burgerButton.addEventListener('click', burgerMenuExpand);
-    window.addEventListener('scroll', scrollClose);
+//     burgerButton.addEventListener('click', burgerMenuExpand);
+//     window.addEventListener('scroll', scrollClose);
 
-    socialsButton.addEventListener('click', animateSocialButtons);
+//     socialsButton.addEventListener('click', animateSocialButtons);
 
-})();
+// })();

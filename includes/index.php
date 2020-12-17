@@ -4,11 +4,11 @@
 
     if(isset($_GET["id"])) {
         $targetID = $_GET["id"];
-        $result = getSinglePiece($pdo, $targetID);
+        $result = getMovieByID($pdo, $targetID);
 
         return $result;
     } else {
-        $allPieces = getAllPieces($pdo);
+        $allPieces = getMovies($pdo);
 
         return $allPieces;
     }
