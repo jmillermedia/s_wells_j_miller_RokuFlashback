@@ -1,8 +1,8 @@
 // JAVASCRIPT START
 import { fetchdata } from "./modules/Data.js";
 import allMovies from "./modules/allMovies.js";
-import TheLightboxVideo from "./modules/TheLightboxVideo.js";
-import TheLightboxImages from "./modules/TheLightboxImages.js";
+// import TheLightboxVideo from "./modules/TheLightboxVideo.js";
+// import TheLightboxImages from "./modules/TheLightboxImages.js";
 
     const myVM = (() => {
 
@@ -41,8 +41,8 @@ import TheLightboxImages from "./modules/TheLightboxImages.js";
 
         components: {
             "allmovies": allMovies,
-            "lightboxvideo": TheLightboxVideo,
-            "lightboximages": TheLightboxImages
+            // "lightboxvideo": TheLightboxVideo,
+            // "lightboximages": TheLightboxImages
         },
 
     }).$mount("#app") 

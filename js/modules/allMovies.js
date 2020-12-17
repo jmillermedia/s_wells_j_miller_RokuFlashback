@@ -1,23 +1,24 @@
 export default {
-    name: "pieceThumb",
-    props: ['piece'],
+    name: "movieThumb",
+    props: ['movie'],
 
     data: function() {
         return {
-            projectName: this.piece.Title,
-            projectDate: this.piece.Date
+            projectName: this.movie.movies_title,
+            projectDate: this.movie.movies_year
         }
     },
 
     template:
-    `<div class="work" data-aos="fade-up">
-        <div class="work__image">
-            <img :src="'images/' + piece.Thumbnail" :alt='piece.Title + " Portfolio" + " Thumbnail"'>
+    `<div class="movie">
+        <div class="movie__image">
+            <!-- <img :src="'images/' + movie.movies_cover" :alt='movie.movies_title + " Cover" + " Thumbnail"'> -->
+            <img src="images/movieThumb.jpg" :alt='movies_title + " Cover" + " Thumbnail"'>
         </div>
-        <div class="work__details">
-            <button v-on:click="$emit('showmydata', piece)" class="work__button" :data-piece="piece.ID">Click for more!</button>
-            <p class="work__date">{{piece.Date}}</p>
-            <h3 class="work__title">{{piece.Title}}</h3>
+        <div class="movie__details">
+            <button v-on:click="$emit('showmydata', movie)" class="movie__button" :data-movie="movie.ID">Click for more!</button>
+            <p class="movie__date">{{movie.movies_year}}</p>
+            <h3 class="movie__title">{{movie.movies_title}}</h3>
         </div>
     </div>`,
 }
