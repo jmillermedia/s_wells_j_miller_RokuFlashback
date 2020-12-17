@@ -1,28 +1,74 @@
 <?php
-    $result = array();
+class Movie
+{
+    private $conn;
 
-    function getAllPieces($conn) {
-        $query = "SELECT * FROM tbl_movies";
+    public $movie_table = 'tbl_movies';
+    public $genre_table = 'tbl_genre';
+    public $movie_genre_linking_table = 'tbl_mov_genre';
 
-        $runQuery = $conn->query($query);
-
-        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
-            $result[] = $row;
-        }
-
-        //return $result;
-        echo (json_encode($result));
+    public function __construct($db_connector)
+    {
+        $this->conn = $db_connector;
     }
 
-    function getSinglePiece($conn, $id) {
-        $query = "SELECT * FROM tbl_movies WHERE id=" . $id . "";
+    public function getMovies()
+    {
+        // this will return all movies
+        $query = 'SELECT m.*, GROUP_CONCAT(g.genre_name) AS genre_name';
+        $query.= ' FROM '.$this->movie_table.' m ';
+        $query.= ' LEFT JOIN '.$this->movie_genre_linking_table.' link ON link.movies_id = m.movies_id';
+        $query.= ' LEFT JOIN '.$this->genre_table.' g ON g.genre_id = link.genre_id';
+        $query.= ' GROUP BY m.movies_id';
 
-        $runQuery = $conn->query($query);
+        $stmt = $this->conn->prepare($query);
 
-        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
-            $result[] = $row;
-        }
+        $stmt->execute();
 
-        //return $result;
-        echo (json_encode($result));
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getMovieByGenre($genre)
+    {
+        // TODO: this will return movies under a given genre
+        $query = 'SELECT m.*, GROUP_CONCAT(g.genre_name) AS genre_names';
+        $query.= ' FROM '.$this->movie_table.' m ';
+        $query.= ' LEFT JOIN '.$this->movie_genre_linking_table.' link ON link.movies_id = m.movies_id';
+        $query.= ' LEFT JOIN '.$this->genre_table.' g ON g.genre_id = link.genre_id';
+        $query.= ' WHERE g.genre_name LIKE "%'.$genre.'%"';
+        $query.= ' GROUP BY m.movies_id';
+
+        // echo $query;
+        // exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+    }
+
+    public function getMovieByID($id) 
+    // TODO: this will return one move that matches its ID
+    {
+        $query = 'SELECT m.*, GROUP_CONCAT(g.genre_name) AS genre_names';
+        $query.= ' FROM '.$this->movie_table.' m ';
+        $query.= ' LEFT JOIN '.$this->movie_genre_linking_table.' link ON link.movies_id = m.movies_id';
+        $query.= ' LEFT JOIN '.$this->genre_table.' g ON g.genre_id = link.genre_id';
+        $query.= ' WHERE m.movies_id = "'.$id.'"';
+        $query.= ' GROUP BY m.movies_id';
+
+        // make sure the query contains the right query
+
+        // echo $query;
+        // exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
