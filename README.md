@@ -2,17 +2,18 @@
 
 # Selena Wells & Jonathan Miller -  Roku Flashback Project
  Roku Flashback Project - Multimedia Authoring: Term 3
-## Developer - Jonathan Miller 
 
-[Project Roadmap](www.insertURLHere.com 'Google Docs')
+#### Designer - Selena Wells
 
-## Designer - Selena Wells
+[Design Doc](https://docs.google.com/document/d/1cLjANI-l3je6Z7Grm-uryeLQoabeqExUvBV67tDGdPw/edit?usp=sharing 'Google Docs')
 
-Design Doc - https://docs.google.com/document/d/1cLjANI-l3je6Z7Grm-uryeLQoabeqExUvBV67tDGdPw/edit?usp=sharing
-Wireframe/Prototypes - https://xd.adobe.com/view/d77f95d9-7443-4241-97bc-9ed2eef65b7a-822c/
+[Wireframe/Prototypes](https://xd.adobe.com/view/d77f95d9-7443-4241-97bc-9ed2eef65b7a-822c/ 'Adobe XD Viewer')
+
+#### Developer - Jonathan Miller
+
+[Project Roadmap - Development](https://docs.google.com/document/d/1xqs1HnzDWSqP4hfwCDFnvpMY9h-KI1w_CaS_0B3f-6E/edit?usp=sharing 'Google Docs')
 
 ## Description:
-
 A media streaming app to watch and listen to music, movies and tv shows from the 50s - 90s. Jump back to the past with Roku Flashback.
 
 This is a work in progress. If you would like to checkout where we are going and what is to come, see our designs and developement roadmap.
@@ -24,7 +25,9 @@ This is a work in progress. If you would like to checkout where we are going and
 
 
 ## Installation:
-No particular installation required. Download repo and open in a code editor. Content will require a Live Server to view properly.
+
+No particular installation required. Download repo and open in a code editor. Content will require a Live Server to view properly (MAMP/WAMP/Docker). Database will need to be loaded into local phpMyAdmin.
+
 
 ## MIT License:
 MIT License
@@ -48,8 +51,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
-
