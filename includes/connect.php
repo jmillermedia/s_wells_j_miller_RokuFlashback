@@ -3,7 +3,7 @@
 class Database 
 {
     private $host = 'localhost';
-    private $db_name = 'db_movies';
+    private $db_name = 'db_roku';
     private $username = 'root';
     private $password = 'root';
 
