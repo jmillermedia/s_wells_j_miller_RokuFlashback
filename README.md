@@ -1,4 +1,4 @@
-![header image](/images/readmeBanner.jpg "Roku Flashback")
+![header image](./images/readmeBanner.jpg "Roku Flashback")
 
 # Selena Wells & Jonathan Miller -  Roku Flashback Project
  Roku Flashback Project - Multimedia Authoring: Term 3
