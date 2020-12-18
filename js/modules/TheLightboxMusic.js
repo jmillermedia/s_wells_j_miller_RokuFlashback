@@ -1,6 +1,6 @@
 export default {
-    name: 'TheLightboxImages',
-    props: ['piece'],
+    name: 'TheLightboxMusic',
+    props: ['music'],
 
     data: function() {
         return {
@@ -24,6 +24,10 @@ export default {
                 <img :src="'images/' + piece.Image3" :alt='piece.Title + " Portfolio" + " Image"'>
             <video class="lbVideo__video hidden"></video>
             </div>
+            <div class="fb-share-button" data-href="https://www.your-domain.com/your-page.html" data-layout="button_count"></div>
+
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+
         </div>
     `,
 }
