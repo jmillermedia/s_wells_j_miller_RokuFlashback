@@ -1,15 +1,27 @@
 # Roku Flashback
-## Developer - Jonathan Miller Designer - Selena Wells
+## Developer - Jonathan Miller 
+## Designer - Selena Wells
 
 A media streaming app to watch and listen to music, movies and tv shows from the 50s - 90s. Jump back to the past with Roku Flashback.
 
-This is a work in progress. If you would like to checkout where we are going and what is to come, see our designs and developement roadmap in the respective branches. 
+This is a work in progress. If you would like to checkout where we are going and what is to come, see our designs and developement roadmap in the respective branches or checkout the documents provided below.
+
+Design Doc - https://docs.google.com/document/d/1cLjANI-l3je6Z7Grm-uryeLQoabeqExUvBV67tDGdPw/edit?usp=sharing
+Wireframe/Prototypes - https://xd.adobe.com/view/d77f95d9-7443-4241-97bc-9ed2eef65b7a-822c/
 
 ## Installation
 
 - Put the site into your web server document route.
 
 - Download Database (provided if needed)
+
+## Usage
+
+TO DO 
+
+## Credits
+
+TO DO
 
 
 ## License
