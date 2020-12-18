@@ -22,6 +22,10 @@ export default {
             controls 
             class="lbVideo__video" 
             :poster="'images/' + piece.Thumbnail"></video>
+            <div class="fb-share-button" data-href="https://www.your-domain.com/your-page.html" data-layout="button_count"></div>
+
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+
 
         </div>
     `,

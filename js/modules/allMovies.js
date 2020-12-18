@@ -16,10 +16,6 @@ export default {
         <div class="movie__image" v-on:click="$emit('showmovie', movie)">
             <!-- <img :src="'images/' + movie.movies_cover" :alt='movie.movies_title + " Cover" + " Thumbnail"'> -->
             <img src="images/movieThumb.jpg" :alt='this.movie.movies_title + " Cover"'>
-
-            <div class="fb-share-button" data-href="https://www.your-domain.com/your-page.html" data-layout="button_count"></div>
-
-            <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
         </div>
         <!-- <div class="movie__details">
             <button v-on:click="$emit('showmydata', movie)" class="movie__button" :data-movie="movie.ID">Click for more!</button> --> <!-- keeping for click functionality -->

@@ -19,8 +19,9 @@
 </head>
 <body>
 	<main id="app">
-		<allMovies @showmovie="showMovie" v-for="movie in movies" :movie="movie" :key="movie.ID"></allMovies>
-
+		<div class="nineties">
+			<allMovies @showmovie="showMovie" v-for="movie in movies" :movie="movie" :key="movie.ID"></allMovies>
+		</div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="js/main.js" type="module"></script>

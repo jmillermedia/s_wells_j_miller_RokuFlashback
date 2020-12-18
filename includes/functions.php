@@ -71,6 +71,18 @@ class Movie
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function get90sMovies()
+    {
+        $query = 'SELECT * FROM `tbl_movies` WHERE `movies_year`';
+        $query.= ' BETWEEN 1990 AND 1999';
+        
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 class Music 

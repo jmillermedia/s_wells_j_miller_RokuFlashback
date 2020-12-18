@@ -24,6 +24,9 @@ if(isset($_GET['id'])) {
 } elseif (isset($_GET['genre'])) {
     //      c. /movie.read.php?genre=action --> return all action movies
     $results = $movie->getMovieByGenre($_GET['genre']);
+
+} elseif (isset($_GET['nineties'])) {
+    $results = $movie->get90sMovies();
 } else {
     //      a. /movie/read.php --> return all movies
     $results = $movie->getMovies();
