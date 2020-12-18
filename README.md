@@ -3,20 +3,19 @@
 # Selena Wells & Jonathan Miller -  Roku Flashback Project
  Roku Flashback Project - Multimedia Authoring: Term 3
 ## Developer - Jonathan Miller 
-## Designer - Selena Wells
-
 
 [Project Roadmap](www.insertURLHere.com 'Google Docs')
 
+## Designer - Selena Wells
+
+Design Doc - https://docs.google.com/document/d/1cLjANI-l3je6Z7Grm-uryeLQoabeqExUvBV67tDGdPw/edit?usp=sharing
+Wireframe/Prototypes - https://xd.adobe.com/view/d77f95d9-7443-4241-97bc-9ed2eef65b7a-822c/
 
 ## Description:
 
 A media streaming app to watch and listen to music, movies and tv shows from the 50s - 90s. Jump back to the past with Roku Flashback.
 
-This is a work in progress. If you would like to checkout where we are going and what is to come, see our designs and developement roadmap in the respective branches or checkout the documents provided below.
-
-Design Doc - https://docs.google.com/document/d/1cLjANI-l3je6Z7Grm-uryeLQoabeqExUvBV67tDGdPw/edit?usp=sharing
-Wireframe/Prototypes - https://xd.adobe.com/view/d77f95d9-7443-4241-97bc-9ed2eef65b7a-822c/
+This is a work in progress. If you would like to checkout where we are going and what is to come, see our designs and developement roadmap.
 
 
 ## Assignment Requirements:
