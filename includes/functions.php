@@ -72,3 +72,32 @@ class Movie
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+
+class Music 
+{
+    private $conn;
+
+    public $music_table = 'tbl_music';
+    public $music_genre_table = 'tbl_music_genre';
+
+    public function __construct($db_connector)
+    {
+        $this->conn = $db_connector;
+    }
+
+    public function getMusic()
+    {
+        // this will return all movies
+        $query = 'SELECT m.*, GROUP_CONCAT(g.genre_name) AS genre_name';
+        $query.= ' FROM '.$this->music_table.' m ';
+        $query.= ' LEFT JOIN '.$this->movie_genre_linking_table.' link ON link.movies_id = m.movies_id';
+        $query.= ' LEFT JOIN '.$this->music_genre_table.' g ON g.genre_id = link.genre_id';
+        $query.= ' GROUP BY m.movies_id';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}

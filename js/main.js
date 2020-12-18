@@ -1,8 +1,8 @@
 // JAVASCRIPT START
 import { fetchdata } from "./modules/Data.js";
 import allMovies from "./modules/allMovies.js";
-// import TheLightboxVideo from "./modules/TheLightboxVideo.js";
-// import TheLightboxImages from "./modules/TheLightboxImages.js";
+import TheLightboxVideo from "./modules/TheLightboxVideo.js";
+import TheLightboxImages from "./modules/TheLightboxMusic.js";
 
     const myVM = (() => {
 
@@ -23,12 +23,12 @@ import allMovies from "./modules/allMovies.js";
         },
 
         methods: {
-            showPortfolioData(target) { //debugger;
-                console.log("you clicked on " + target.Title + " this will show " + target.Type);
+            showMovie(target) { //debugger;
+                console.log("you clicked on " + target.movies_title + ", " + " this movie is " + target.movies_runtime + " long.");
 
-                this.activeComponent = `lightbox${target.Type}`;
-                document.querySelector('.lightbox').classList.remove('hidden');
-                document.documentElement.style.overflow = 'hidden';
+                // this.activeComponent = `lightbox${target.Type}`;
+                // document.querySelector('.lightbox').classList.remove('hidden');
+                // document.documentElement.style.overflow = 'hidden';
                 this.movie = target;
             },
 
@@ -41,8 +41,8 @@ import allMovies from "./modules/allMovies.js";
 
         components: {
             "allmovies": allMovies,
-            // "lightboxvideo": TheLightboxVideo,
-            // "lightboximages": TheLightboxImages
+            "lightboxvideo": TheLightboxVideo,
+            "lightboxmusic": TheLightboxImages
         },
 
     }).$mount("#app") 
