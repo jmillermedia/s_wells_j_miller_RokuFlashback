@@ -15,7 +15,7 @@ import TheLightboxImages from "./modules/TheLightboxMusic.js";
         },
         
         mounted: function() {
-            fetchdata('./includes/read.php?nineties')
+            fetchdata('./includes/read.php')
                 .then(data => {
                     data.forEach(movie => this.movies.push(movie));
                 })
