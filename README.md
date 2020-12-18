@@ -7,8 +7,9 @@ This is a work in progress. If you would like to checkout where we are going and
 
 ## Installation
 
--Put the site into your web server document route.
--Download Database (provided if needed)
+- Put the site into your web server document route.
+
+- Download Database (provided if needed)
 
 
 ## License
