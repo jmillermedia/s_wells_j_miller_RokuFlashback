@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = process.env.PORT || 5050;
+const port = process.env.PORT || 5000;
 
 // this catches ever route request - every time you change your location bar
 app.use((req, res, next) => {
