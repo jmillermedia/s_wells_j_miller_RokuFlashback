@@ -1,0 +1,42 @@
+<!--INDEX.HTML START-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- in mobile set zoom level to 100%, set size to equal device width -->
+	<meta name="viewport" content="initial-scale.1.0, width=device-width">
+	<title>Roku Flashback</title>
+	<link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- Facebook meta details for sharing API -->
+	<meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="Your Website Title" />
+	<meta property="og:description"   content="Your description" />
+	<meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+</head>
+<body>
+	<main id="app">
+		<div class="nineties">
+			<allMovies @showmovie="showMovie" v-for="movie in movies" :movie="movie" :key="movie.ID"></allMovies>
+		</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="js/main.js" type="module"></script>
+
+<!-- Facebook Sharing API Requirement -->
+<div id="fb-root"></div> 
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Twitter sharing API Requirement -->
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+</body>
+</html>
