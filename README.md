@@ -1,3 +1,4 @@
+
 ![header image](https://github.com/jmillermedia/s_wells_j_miller_RokuFlashback/blob/main/images/readmeBanner.jpg "Roku Flashback")
 
 # Selena Wells & Jonathan Miller -  Roku Flashback Project
@@ -51,3 +52,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
