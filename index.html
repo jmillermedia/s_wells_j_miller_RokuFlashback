@@ -1,42 +1,176 @@
 <!--INDEX.HTML START-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<!-- in mobile set zoom level to 100%, set size to equal device width -->
-	<meta name="viewport" content="initial-scale.1.0, width=device-width">
-	<title>Roku Flashback</title>
-	<link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<!-- Facebook meta details for sharing API -->
-	<meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
-	<meta property="og:type"          content="website" />
-	<meta property="og:title"         content="Your Website Title" />
-	<meta property="og:description"   content="Your description" />
-	<meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+    <meta charset="utf-8">
+    <!-- in mobile set zoom level to 100%, set size to equal device width -->
+    <meta name="viewport" content="initial-scale.1.0, width=device-width">
+    <title>Roku Flashback</title>
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Facebook meta details for sharing API -->
+    <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Your Website Title" />
+    <meta property="og:description" content="Your description" />
+    <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
 </head>
+
 <body>
-	<main id="app">
-		<div class="nineties">
-			<allMovies @showmovie="showMovie" v-for="movie in movies" :movie="movie" :key="movie.ID"></allMovies>
-		</div>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<script src="js/main.js" type="module"></script>
+    <main id="app">
+        <div class="nineties">
+            <allMovies @showmovie="showMovie" v-for="movie in movies" :movie="movie" :key="movie.ID"></allMovies>
+        </div>
 
-<!-- Facebook Sharing API Requirement -->
-<div id="fb-root"></div> 
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+        <div id="pageWrapper">
+            <header id="header">
+                <div class="mainLogo">LOGO GOES HERE</div>
+                <nav id="topNav">
+                    <ul class="navItems">
+                        <li class="navItem"><a href="#">Movies</a></li>
+                        <li class="navItem"><a href="#">Tv Shows</a></li>
+                        <li class="navItem"><a href="#">Music</a></li>
+                    </ul>
+                </nav>
+                <div class="userImage">USER IMAGE GOES HERE</div>
+            </header>
+            <section class="heroMenu">
+                <h2 class="bigTitle">Who's Watching</h2>
+                <div class="usersSection">
+                    <div class="user">
+                        <button class="userAccountBtn"><img src="./images/user.png" alt="user image adults"></button>
+                        <h3 class="userTitle">Adults</h3>
+                    </div>
+                    <div class="user">
+                        <button class="userAccountBtn"><img src="./images/user.png" alt="user image kids"></button>
+                        <h3 class="userTitle">Kids</h3>
+                    </div>
+                </div>
+                <div class="mediaMenu">
+                    <div class="mediaOption">
+                        <button class="mediaOptionBtn"><img src="#" alt="movies"></button>
+                        <h3 class="optionTitle">Movies</h3>
+                    </div>
+                    <div class="mediaOption">
+                        <button class="mediaOptionBtn"><img src="#" alt="television"></button>
+                        <h3 class="optionTitle">TV Shows</h3>
+                    </div>
+                    <div class="mediaOption">
+                        <button class="mediaOptionBtn"><img src="#" alt="music"></button>
+                        <h3 class="optionTitle">Music</h3>
+                    </div>
+                </div>
+            </section>
+            <section class="mediaList" id="90sMovies">
+                <h2 class="mediumTitle">90's Movies</h2>
+                <ul class="mediaCarousel">
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                </ul>
+            </section>
+            <section class="mediaList" id="80sGameShows">
+                <h2 class="mediumTitle">80's Game shows</h2>
+                <ul class="mediaCarousel">
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                </ul>
+            </section>
+            <section class="mediaList" id="70sConcerts">
+                <h2 class="mediumTitle">70's Concerts</h2>
+                <ul class="mediaCarousel">
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                </ul>
+            </section>
+            <section class="mediaList" id="60sTv">
+                <h2 class="mediumTitle">60's Tv shows</h2>
+                <ul class="mediaCarousel">
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                </ul>
+            </section>
+            <section class="mediaList" id="50sInterviews">
+                <h2 class="mediumTitle">50's Interviews</h2>
+                <ul class="mediaCarousel">
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                    <li class="mediaPiece">
+                        <a href="#"><img src="./images/placeholder.png" alt="cover art"></a>
+                    </li>
+                </ul>
+            </section>
 
-<!-- Twitter sharing API Requirement -->
-<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+        </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/main.js" type="module"></script>
+
+    <!-- Facebook Sharing API Requirement -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Twitter sharing API Requirement -->
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 </body>
+
 </html>
