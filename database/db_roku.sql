@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 18, 2020 at 08:08 PM
+-- Generation Time: Mar 11, 2021 at 12:14 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -131,7 +131,7 @@ CREATE TABLE `tbl_comments` (
 --
 
 CREATE TABLE `tbl_country` (
-  `country_id` smallint(3) NOT NULL,
+  `country_id` smallint(6) NOT NULL,
   `country_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -652,46 +652,39 @@ CREATE TABLE `tbl_movies` (
   `movies_runtime` varchar(25) NOT NULL,
   `movies_storyline` text NOT NULL,
   `movies_trailer` varchar(75) NOT NULL DEFAULT 'trailer_default.jpg',
-  `movies_release` varchar(125) NOT NULL,
-  `movies_decade` varchar(20) NOT NULL
+  `movies_release` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_movies`
 --
 
-INSERT INTO `tbl_movies` (`movies_id`, `movies_cover`, `movies_title`, `movies_year`, `movies_runtime`, `movies_storyline`, `movies_trailer`, `movies_release`, `movies_decade`) VALUES
-(1, 'guardians2.jpg', 'Guardians of the Galaxy Vol. 2', '2017', '2h 16m', 'The Guardians must fight to keep their newfound family together as they unravel the mystery of Peter Quill&rsquo;s true parentage.', 'Guardians2.mp4', 'May 5, 2017', ''),
-(2, 'dunkirk.jpg', 'Dunkirk', '2017', '1h 46m', 'Allied soldiers from Belgium, the British Empire and France are surrounded by the German army and evacuated during a fierce battle in World War II.', 'Dunkirk.mp4', 'July 21, 2017', ''),
-(3, 'logan.jpg', 'Logan', '2017', '2h 17m', 'In the near future, a weary Logan cares for an ailing Professor X, somewhere on the Mexican border. However, Logan&rsquo;s attempts to hide from the world, and his legacy, are upended when a young mutant arrives, pursued by dark forces.', 'Logan.mp4', 'March 3,2017', ''),
-(4, 'okja.jpg', 'Okja', '2017', '2h', ' Meet Mija, a young girl who risks everything to prevent a powerful, multi-national company from kidnapping her best friend - a fascinating animal named Okja. ', 'Okja.mp4', 'June 28,2017', ''),
-(5, 'beauty.jpg', 'Beauty and the Beast', '2017', '2h 9min', 'An adaptation of the fairy tale about a monstrous-looking prince and a young woman who fall in love. ', 'Beauty.mp4', 'March 17, 2017', ''),
-(6, 'hacksaw.jpg', 'Hacksaw Ridge', '2016', '2h 19m', 'WWII American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people, and becomes the first man in American history to receive the Medal of Honor without firing a shot.', 'Hacksaw.mp4', 'November 4, 2016', ''),
-(7, 'deadpool.jpg', 'Deadpool', '2016', '1h 48m', 'A fast-talking mercenary with a morbid sense of humor is subjected to a rogue experiment that leaves him with accelerated healing powers and a quest for revenge.', 'Bloodpool.mp4', 'Febuary 12, 2016', ''),
-(8, 'arrival.jpg', 'Arrival', '2016', '1h 56m', 'When twelve mysterious spacecraft appear around the world, linguistics professor Louise Banks is tasked with interpreting the language of the apparent alien visitors.', 'Arrival.mp4', 'November 11, 2016', ''),
-(9, 'eddie.jpg', 'Eddie the Eagle', '2016', '1h 46m', 'The story of Eddie Edwards, the notoriously tenacious British underdog ski jumper who charmed the world at the 1988 Winter Olympics.', 'Eddie.mp4', 'Febuary 26, 2016', ''),
-(10, 'trolls.jpg', 'Trolls', '2016', '1h 32m', 'After the Bergens invade Troll Village, Poppy, the happiest Troll ever born, and the curmudgeonly Branch set off on a journey to rescue her friends.', 'Trolls.mp4', 'November 4, 2016', ''),
-(11, 'revenant.jpg', 'The Revenant', '2015', '2h 36m', 'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.', 'Revenant.mp4', 'January 8, 2015', ''),
-(12, 'brooklyn.jpg', 'Brooklyn', '2015', '1h 57m', 'An Irish immigrant lands in 1950s Brooklyn, where she quickly falls into a romance with a local. When her past catches up with her, however, she must choose between two countries and the lives that exist within.', 'Brooklyn.mp4', 'November 25, 2015', ''),
-(13, 'walk.jpg', 'The Walk', '2015', '2h 3m', 'In 1974, high-wire artist Philippe Petit recruits a team of people to help him realize his dream: to walk the immense void between the World Trade Center towers.', 'Walk.mp4', 'October 9, 2015', ''),
-(14, 'colonia.jpg', 'Colonia', '2015', '1h 46m', 'A young woman&rsquo;s desperate search for her abducted boyfriend that draws her into the infamous Colonia Dignidad, a sect nobody has ever escaped from.', 'Colonia.mp4', 'April 15, 2015', ''),
-(15, 'force.jpg', 'Star Wars: The Force Awakens', '2015', '2h 16m', 'Three decades after the Empire&rsquo;s defeat, a new threat arises in the militant First Order. Stormtrooper defector Finn and spare parts scavenger Rey are caught up in the Resistance&rsquo;s search for the missing Luke Skywalker.', 'Force.mp4', 'December 18, 2015', ''),
-(16, 'whiplash.jpg', 'Whiplash', '2014', '1h 47m', 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.', 'Whiplash.mp4', 'October 15, 2014', ''),
-(17, 'guardians.jpg', 'Guardians of the Galaxy', '2014', '2h 1m', 'A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.', 'Guardians.mp4', 'August 1, 2014', ''),
-(18, 'donjon.jpg', 'Don Jon', '2013', '1h 30m', 'A New Jersey guy dedicated to his family, friends, and church, develops unrealistic expectations from watching porn and works to find happiness and intimacy with his potential true love.', 'donjon.mp4', 'September 27, 2013', ''),
-(19, 'gravity.jpg', 'Gravity', '2013', '1h 31m', 'Two astronauts work together to survive after an accident which leaves them alone in space.', 'Gravity.mp4', 'October 4, 2013', ''),
-(20, 'pi.jpg', 'Life of Pi', '2012', '2h 7m', 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.', 'Pi.jpg', 'November 21, 2012', ''),
-(21, 'silver.jpg', 'Silver Linings Playbook', '2012', '2h 2m', 'After a stint in a mental institution, former teacher Pat Solitano moves back in with his parents and tries to reconcile with his ex-wife. Things get more challenging when Pat meets Tiffany, a mysterious girl with problems of her own.', 'Silver.jpg', 'December 25, 2012', ''),
-(22, 'lineoffire.jpg', 'In The Line Of Fire', '1993', '2h 8m', 'Secret Service agent Frank Horrigan (Clint Eastwood) couldn\'t save Kennedy, but he\'s determined not to let a clever assassin take out this president.', 'lineoffire.mp4', 'July 8, 1993', 'nineties'),
-(23, 'fightclub.jpg', 'Fight Club', '1999', '2h 31m', 'Discontented with his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. The project soon spirals down into something sinister.', 'fightclub.mp4', 'October 15, 1999', 'nineties'),
-(24, 'misery.jpg', 'Misery', '1990', '1h 47m', 'A best-selling novelist is on his way home after completing his latest book when he meets with a car accident. He is rescued by an obsessed fan, only to discover that he is her prisoner.', 'misery.mp4', 'November 30, 1990', 'nineties'),
-(25, 'edwardscissorhands.jpg', 'Edward Scissorhands', '1990', '1h 45m', 'Edward, a synthetic man with scissor hands, is taken in by Peg, a kindly Avon lady, after the passing of his inventor. Things take a turn for the worse when he is blamed for a crime he did not commit.', 'edwardscissorhands.mp4', 'December 6, 1990', ''),
-(26, 'bobbyfischer.jpg', 'Searching for Bobby Fischer', '1993', '1h 50m', 'Inspired by the life of chess prodigy. Josh is a normal kid and loves to play football. But, his father notices signs of him being a genius at chess and encourages him.', 'bobbyfischer.mp4', 'August 11, 1993', ''),
-(27, 'scent.jpg', 'Scent of a Woman', '1992', '2h 37m', 'A prep school student, who is in need of money, agrees to be the caregiver of a man with visual impairment while his family is away. Unbeknownst to him, the colonel has his own agenda for the weekend.', 'scent.mp4', 'December 23, 1992', ''),
-(28, 'fallingdown.jpg', 'Falling Down', '1993', '1h 53m', 'William \'D-Fens\' Foster is an unemployed and divorced engineer whose increasing frustration levels lead him to act out violently and commit several crimes.', 'fallingdown.mp4', 'February 26, 1993', ''),
-(29, 'gilbertgrape.jpg', 'What\'s Eating Gilbert Grape', '1993', '2h 8m', 'Gilbert is caught between his love for Becky and his responsibilities towards Arnie, his brother who has an intellectual disability, and Bonnie, his morbidly-obese mother.', 'gilbertgrape.mp4', 'December 17, 1993', ''),
-(30, 'hook.jpg', 'Hook', '1991', '2h 24m', 'When Peter Pan\'s children are abducted by Captain Hook, he is forced to return to Neverland. With some help from Tinkerbell and the Lost Boys, he must battle against his old foe to save his kids.', 'hook.mp4', 'December 8, 1991', ''),
-(31, 'jinglealltheway.jpg', 'Jingle All The Way', '1996', '1h 35m', 'Howard, a haggard salesman, promises his son a Turbo Man toy for Christmas. He is forced to fight every parent and travel all over town to get the toy after he forgets to buy it.', 'jinglealltheway.mp4', 'November 16, 1996', '');
+INSERT INTO `tbl_movies` (`movies_id`, `movies_cover`, `movies_title`, `movies_year`, `movies_runtime`, `movies_storyline`, `movies_trailer`, `movies_release`) VALUES
+(1, 'backtotheFutureCover.jpg', 'Back to the Future', '1985', '1h 56min', 'Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the eccentric scientist Doc Brown.', 'backtotheFuture.mp4', ''),
+(2, 'scarfaceCover.jpg', 'Scarface', '1983', '2h 50min', 'In 1980 Miami, a determined Cuban immigrant takes over a drug cartel and succumbs to greed.', 'scarface.mp4', ''),
+(3, 'aliensCover.jpg', 'Aliens', '1986', '2h 17min', 'Fifty-seven years after surviving an apocalyptic attack aboard her space vessel by merciless space creatures, Officer Ripley awakens from hyper-sleep and tries to warn anyone who will listen about the predators.', 'aliens.mp4', ''),
+(4, 'gremlinsCover.jpg', 'Gremlins', '1984', '1h 46min', 'A young man inadvertently breaks three important rules concerning his new pet and unleashes a horde of malevolently mischievous monsters on a small town.', 'gremlins.mp4', ''),
+(5, 'ghostbustersCover.jpg', 'Ghostbusters', '1984', '1h 45min', 'Three former parapsychology professors set up shop as a unique ghost removal service.', 'ghostbusters.mp4', ''),
+(6, 'jackCover.jpg', 'Jack', '1996', '1h 53min', 'Jack, a 10-year-old boy, suffers from a condition that makes him look much older than he really is. This leads to him facing a lot of difficulties in school but he soon wins over his classmates.', 'jack.mp4', ''),
+(7, 'sevenCover.jpg', 'Seven', '1995', '2h 8min', 'A serial killer begins murdering people according to the seven deadly sins. Two detectives, one new to the city and the other about to retire, are tasked with apprehending the criminal.', 'seven.jpg', ''),
+(8, 'theMaskCover.jpg', 'The Mask', '1994', '1h 41min', 'Stanley, a meek bank employee, turns into an eccentric and maniacal green-skinned superhero who can bend reality, after wearing a wooden mask that was created by Loki, the Norse god of mischief.', 'theMask.mp4', ''),
+(9, 'schindlersListCover.jpg', 'Schindler\'s List', '1993', '3h 17min', 'Oskar Schindler, a German industrialist and member of the Nazi party, tries to save his Jewish employees after witnessing the persecution of Jews in Poland.', 'schindlersList.mp4', ''),
+(10, 'theFifthElementCover.jpg', 'The Fifth Element', '1997', '2h 7min', 'Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.', 'theFifthElement.mp4', ''),
+(11, 'theExorcistCover.jpg', 'The Exorcist', '1973', '2h 12min', 'An actress notices dangerous changes in the behavior and physical make-up of her 12-year-old daughter. Meanwhile, a young priest begins to doubt his faith while dealing with his mother\'s sickness.', 'theExorcist.mp4', ''),
+(12, 'watershipDownCover.jpg', 'Watership Down', '1978', '1h 43min', 'When a young rabbit named Fiver (Richard Briers) has a prophetic vision that the end of his warren is near, he persuades seven other rabbits to leave with him in search of a new home.', 'watershipDown.mp4', ''),
+(13, 'willyWonkaCover.jpg', 'Willy Wonka & the Chocolate Factory', '1971', '1h 29min', 'A factory owner gives 5 children a chance to win a lifetime supply of sweets. Charlie, along with four odious children enter the factory. Disasters befall each of the children. Will Charlie survive?', 'willyWonka.mp4', ''),
+(14, 'dirtyHarryCover.jpg', 'Dirty Harry', '1971', '1h 43min', 'In the year 1971, a police detective ignores the orders of his superiors and gambles with innocent lives to capture a sniper terrorizing San Francisco.', 'dirtyHarry.mp4', ''),
+(15, 'logansRunCover.jpg', 'Logan\'s Run', '1976', '2h 02min', 'In the year 2274, young residents enjoy an idyllic, hedonistic lifestyle within the protective confines of a domed city. The general belief is that when each person turns 30, they are reincarnated for another blissful life cycle.', 'logansRun.mp4', ''),
+(16, 'westSideStoryCover.jpg', 'West Side Story', '1961', '2h 33min', 'Lovers Maria and Tony find themselves entangled in the bitter battle between their gangster families. Knowing this feud will lead to disastrous consequences, Maria sends Tony to end the fight.', 'westSideStory.mp4', ''),
+(17, 'breakfastAtTiffanysCover.jpg', 'Breakfast at Tiffany\'s', '1961', '1h 55min', 'Paul is a struggling writer who recently moves into a new apartment in New York. When he meets Holly, an eccentric but beautiful socialite, he hopelessly falls in love with her.', 'breakfastAtTiffanys.mp4', ''),
+(18, 'chittyChittyBangBangCover.jpg', 'Chitty Chitty Bang Bang', '1968', '2h 25min', 'Inventor Caractacus Potts transforms an old Grand Prix car into a magical flying vehicle that teleports him and his family to a kingdom ruled by the evil Baron Bomburst.', 'chittyChittyBangBang.mp4', ''),
+(19, 'theSoundOfMusicCover.jpg', 'The Sound of Music', '1965', '2h 55min', 'A tuneful, heartwarming story, it is based on the real life story of the Von Trapp Family singers, one of the world\'s best-known concert groups in the era immediately preceding World War II. ', 'theSoundOfMusic.mp4', ''),
+(20, 'theGraduate.jpg', 'The Graduate', '1967', '1h 47min', 'While he is lured into a seductive affair with the wife of his father\'s business partner, college graduate Benjamin also falls in love with her daughter, Elaine.', 'theGraduate.mp4', ''),
+(21, 'themCover.jpg', 'Them!', '1954', '1h 34m', 'While investigating a series of mysterious deaths, Sergeant Ben Peterson (James Whitmore) finds a young girl (Sandy Descher) who is unable to speak. As Peterson joins forces with FBI agent Robert Graham (James Arness) and scientist Dr. Harold Medford (Edmund Gwenn), he discovers that all the incidents are due to giant ants that have been mutated by atomic radiation. Peterson and Graham, with the aid of the military, attempt to find the queen ants and destroy the nests before the danger spreads.', 'them.mp4', ''),
+(22, 'cinderellaCover.jpg', 'Cinderella', '1957', '1h 30m', 'Rodgers and Hammerstein\'s Cinderella is a musical written for television, but later played on stage, with music by Richard Rodgers and a book and lyrics by Oscar Hammerstein II. It is based upon the fairy tale Cinderella, particularly the French version Cendrillon, ou la petite pantoufle de verre, by Charles Perrault.', 'cinderella.mp4', ''),
+(23, 'peterPanCover.jpg', 'Peter Pan', '1953', '1h 17m', 'In this Disney animated film, Wendy (Kathryn Beaumont) and her two brothers are amazed when a magical boy named Peter Pan (Bobby Driscoll) flies into their bedroom, supposedly in pursuit of his rebellious shadow. He and his fairy friend, Tinkerbell, come from a far-off place called Neverland, where children stay perpetually young. Enchanted, the kids follow him back. But when Pan\'s nemesis, the pirate Captain Hook (Hans Conried), causes trouble, the kids begin to miss their old life.', 'peterPan.mp4', ''),
+(24, 'forbiddenPlanetCover.jpg', 'Forbidden Planet', '1956', '1h 39m', 'In this sci-fi classic, a spacecraft travels to the distant planet Altair IV to discover the fate of a group of scientists sent there decades earlier. When Commander John J. Adams (Leslie Nielsen) and his crew arrive, they discover only two people: Dr. Morbius (Walter Pidgeon) and his daughter, Altaira (Anne Francis), who was born on the remote planet. Soon, Adams begins to uncover the mystery of what happened on Altair IV, and why Morbius and Altaira are the sole survivors.', 'forbiddenPlanet.mp4', ''),
+(25, 'harveyCover.jpg', 'Harvey', '1950', '1h 46m', 'Elwood P. Dowd (James Stewart) is a wealthy drunk who starts having visions of a giant rabbit named Harvey. Elwood lives with his sister Veta (Josephine Hull) and her daughter (Victoria Horne), and Veta worries that Elwood has gone insane. In the process of trying to have him committed, Veta admits that she occasionally sees Harvey herself. The director of the mental home, Dr. Chumley (Cecil Kellaway), tries to reconcile his duty to help Elwood with his own growing experiences with Harvey.', 'harvey.mp4', '');
 
 -- --------------------------------------------------------
 
@@ -982,6 +975,53 @@ INSERT INTO `tbl_mov_studio` (`mov_studio_id`, `movies_id`, `studio_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_music`
+--
+
+CREATE TABLE `tbl_music` (
+  `ID` int(11) NOT NULL,
+  `music_cover` varchar(75) NOT NULL DEFAULT 'Cover.jpg',
+  `music_artist` varchar(125) NOT NULL,
+  `music_title` varchar(125) NOT NULL,
+  `music_runtime` varchar(25) NOT NULL,
+  `music_track` varchar(75) NOT NULL DEFAULT '.mp3',
+  `music_year` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_music`
+--
+
+INSERT INTO `tbl_music` (`ID`, `music_cover`, `music_artist`, `music_title`, `music_runtime`, `music_track`, `music_year`) VALUES
+(1, 'nevermindCover.jpg', 'Nirvana', 'Nevermind', '42:38', 'Nevermind.mp3', '1991'),
+(2, 'OKComputerCover.jpg', 'Radiohead', 'OK Computer', '53:21', 'OKComputer.mp3', '1997'),
+(3, 'siameseDreamCover.jpg', 'The Smashing Pumpkins', 'Siamese Dream', '62:16', 'siameseDream.mp3', '1993'),
+(4, 'babyOneMoreTimeCover.jpg', 'Britney Spears', '...Baby One More Time', '42:20', 'babyOneMoreTime.mp3', '1999'),
+(5, 'astroLoungeCover.jpg', 'Smash Mouth', 'Astro Lounge', '46:24', 'astroLounge.mp3', '1999'),
+(6, 'theJoshuaTree.jpg', 'U2', 'The Joshua Tree', '50:11', 'theJoshuaTreeCover.mp3', '1987'),
+(7, 'remainInLightCover.jpg', 'Talking Heads', 'Remain in Light', '40:10', 'remainInLight.mp3', '1980'),
+(8, 'appetiteForDestructionCover.jpg', 'Guns N\' Roses', 'Appetite for Destruction', '53:52', 'appetiteForDestruction.mp3', '1987'),
+(9, 'thrillerCover.jpg', 'Michael Jackson', 'Thriller', '42:19', 'thriller.mp3', '1982'),
+(10, 'doolittleCover.jpg', 'Pixies', 'Doolittle', '38:38', 'doolittle.mp3', '1989'),
+(11, 'theDarkSideOfTheMoonCover.jpg', 'Pink Floyd', 'The Dark Side of the Moon', '43:09', 'theDarkSideOfTheMoon.mp3', '1973'),
+(12, 'rumoursCover.jpg', 'Fleetwood Mac', 'Rumours', '39:43', 'rumours.mp3', '1977'),
+(13, 'goodbyeYellowBrickRoadCover.jpg', 'Elton John', 'Goodbye Yellow Brick Road', '76:20', 'goodbyeYellowBrickRoad.mp3', '1973'),
+(14, 'offTheWallCover.jpg', 'Michael Jackson', 'Off the Wall', '42:28', 'offTheWall.mp3', '1979'),
+(15, 'aNightAtTheOperaCover.jpg', 'Queen', 'A Night at the Opera', '43:08', 'aNightAtTheOpera.mp3', '1975'),
+(16, 'petSoundsCover.jpg', 'The Beach Boys', 'Pet Sounds', '35:57', 'petSounds.mp3', '1966'),
+(17, 'abbeyRoadCover.jpg', 'The Beatles', 'Abbey Road', '47:03', 'abbeyRoad.mp3', '1969'),
+(18, 'areYouExperiencedCover.jpg', 'The Jimi Hendrix Experience', 'Are You Experienced', '38:34', 'areYouExperienced.mp3', '1967'),
+(19, 'ledZeppelinCover.jpg', 'Led Zeppelin', 'Led Zeppelin II', '41:38', 'ledZeppelin.mp3', '1969'),
+(20, 'tommyCover.jpg', 'The Who', 'Tommy', '75:15', 'tommy.mp3', '1969'),
+(21, 'kindOfBlueCover.jpg', 'Miles Davis', 'Kind of Blue', '45:44', 'kindOfBlue.mp3', '1959'),
+(22, 'inTheWeeSmallHoursCover.jpg', 'Frank Sinatra', 'In the Wee Small Hours', '48:41', 'inTheWeeSmallHours.mp3', '1955'),
+(23, 'elvisPresleyCover.jpg', 'Elvis Presley', 'Elvis Presley', '28:03', 'elvisPresley.mp3', '1956'),
+(24, 'blueTrainCover.jpg', 'John Coltrane', 'Blue Train', '42:50', 'blueTrain.mp3', '1958'),
+(25, 'theFabulousJohnnyCashCover.jpg', 'Johnny Cash', 'The Fabulous Johnny Cash', '42:20', 'theFabulousJohnnyCash.mp3', '1958');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_studio`
 --
 
@@ -1019,6 +1059,53 @@ INSERT INTO `tbl_studio` (`studio_id`, `studio_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_television`
+--
+
+CREATE TABLE `tbl_television` (
+  `ID` int(11) NOT NULL,
+  `television_cover` varchar(75) NOT NULL DEFAULT 'Cover.jpg',
+  `television_title` varchar(125) NOT NULL,
+  `television_year` varchar(5) NOT NULL,
+  `television_runtime` varchar(25) NOT NULL,
+  `television_storyline` text NOT NULL,
+  `television_trailer` varchar(75) NOT NULL DEFAULT '.mp4'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_television`
+--
+
+INSERT INTO `tbl_television` (`ID`, `television_cover`, `television_title`, `television_year`, `television_runtime`, `television_storyline`, `television_trailer`) VALUES
+(1, 'homeImprovementCover.jpg', 'Home Improvement', '1991', '8 seasons', 'The daily trials and tribulations of Tim Taylor, a TV show host raising three mischievous boys with help from his loyal co-host, domineering wife, and genius neighbor.', 'homeImprovement.mp4'),
+(2, 'freshPrinceCover.jpg', 'The Fresh Prince of Bel-Air', '1990', '6 seasons', 'Will Smith more or less plays himself in this good-natured NBC sitcom. As the show\'s popular theme song explains, fictional Will\'s mom sends him away from his rough Philadelphia neighborhood to live with wealthy Uncle Phil and Aunt Vivian in Bel-Air. Will often has fun at the expense of stuck-up cousins Carlton and Hilary.', 'freshPrince.mp4'),
+(3, 'friendsCover.jpg', 'Friends', '1994', '10 seasons', 'Follow the lives of six reckless adults living in Manhattan, as they indulge in adventures which make their lives both troublesome and happening.', 'friends.mp4'),
+(4, '3rdRockCover.jpg', '3rd Rock from the Sun', '1996', '6 seasons', 'Four extraterrestrials who are on an expedition to Earth, taken on human form in order to observe the behavior of human beings. The fun begins when they try to live as a normal human family.', '3rdRock.mp4'),
+(5, 'rugratsCover.jpg', 'Rugrats', '1991', '9 seasons', '`Rugrats\' reveals the world from a baby\'s point of view. Everything looks bigger, more mysterious and uncontrollable. Angelica, the oldest, likes to terrorise her cousin, Tommy, and his friends, and is famous for screaming, \"You stupid babies!\" The adults in the series are often clueless.', 'rugrats.mp4'),
+(6, 'knightRiderCover.jpg', 'Knight Rider', '1982', '4 seasons', 'Michael Knight is a man on a mission. Reborn, so to speak, after getting shot in the face, Knight decides to dedicate his life to fighting for justice. Self-made billionaire Wilton Knight hires Michael to be the lead field agent in his Knight Foundation\'s public justice organization, part of which includes the developoing of KITT (Knight Industries Two Thousand), a superpowered, intelligent souped-up Pontiac Trans-Am. KITT can drive 300 miles an hour, is bulletproof, fireproof, can talk, and helps Michael fight injustices in the world.', 'knightRider.mp4'),
+(7, 'growingPainsCover.jpg', 'Growing Pains', '1985', '7 seasons', 'The \"Father Knows Best\" of the 1980s, Dr. Jason Seaver is a psychiatrist who has moved his practice into his Long Island, N.Y., home so that his wife, Maggie, can resume her career. Their children are girl-crazy Mike, brainiac Carol and cute little Ben (later, precocious Chrissie was born). This series, however, tackles issues that \"Father Knows Best\" wouldn\'t have: drugs, suicide, peer pressure, alcohol. But the Seavers pull through problems with a sense of humor and usually emerge stronger than before.', 'growingPains.mp4'),
+(8, 'babarCover.jpg', 'Babar', '1989', '6 seasons', 'King Babar recounts the story of his life and adventures in this animated adaptation of Jean de Brunhoff\'s (and after his death, his son, Laurent\'s) charming children\'s books. This long-running series has been broadcast in 30 languages in more than 150 countries around the world.', 'babar.mp4'),
+(9, 'goldenGirlsCover.jpg', 'The Golden Girls', '1985', '7 seasons', 'Girls from different parts of the country participate in a series of contests and demonstrate their unique skills and talent to win the coveted title.', 'goldenGirls.mp4'),
+(10, 'perfectStrangersCover.jpg', 'Perfect Strangers', '1986', '8 seasons', 'When Wisconsin native Larry Appleton moves into his first apartment in Chicago, he enjoys his newfound privacy. But that privacy quickly vanishes when Balki Bartokomous, a previously unknown cousin from Mediterranean island of Mypos, shows up wanting to move in. Larry decides to act as a mentor to Balki and help teach him about life in America, which is vastly different than what Balki is used to in his homeland. The two grow close as time goes on, going on many wacky adventures. Over time, both have relationships that eventually end in marriage.', 'perfectStrangers.mp4'),
+(11, 'battlestarGalacticaCover.jpg', 'Battlestar Galactica', '1978', '1 season', 'In the seventh millennium, AD, Galactica is the only surviving battleship after an attack by the evil Cylons. As a result of the attack, peace is destroyed and most of humankind have been wiped out. Led by Commander Adama, Galactica and a hundred or so smaller ships flee to try to find refuge on the legendary but unknown planet Earth. The Cylons, with the help of the equally evil Count Baltar, are in hot pursuit.', 'battlestarGalactica.mp4'),
+(12, 'theWaltonsCover.jpg', 'The Waltons', '1972', '9 seasons', 'Follow the life and hardships of the Walton family consisting of John, Olivia, their seven children and their parents through the Great Depression and World War II.', 'theWaltons.mp4'),
+(13, 'shazamCover.jpg', 'Shazam!', '1974', '3 seasons', 'Teenager Billy Batson and his adult companion, Mentor, travel in an RV, helping people in need.', 'shazam.mp4'),
+(14, 'theIncredibleHulkCover.jpg', 'The Incredible Hulk', '1977', '5 seasons', 'Dr. David Banner is a widowed scientist caught in the middle of an experiment gone bad. As a result, whenever Banner gets extremely upset or stressed out, he turns into a huge green monster called the Incredible Hulk, with awesome strength and rage to match. To keep from being discovered, Banner lives a nomadic life, traveling from town to town in search of a cure and helping people where he can, all the while trying to avoid suspicious reporter Jack McGee, who wants to expose Banner and the Hulk. \"Don\'t make me angry. You wouldn\'t like me when I\'m angry,\" Banner warns McGee in more than one episode.', 'theIncredibleHulk.mp4'),
+(15, 'theMuppetShowCover.jpg', 'The Muppet Show', '1976', '5 seasons', 'A fantastic medley of sweet and mischievous, Jim Henson\'s Muppets, including Kermit the Frog and Miss Piggy, produce a weekly variety show with a range of famous guests. Along for the ride are Gonzo, Fozzie the bear and Scooter -- who is the closest thing to a human puppet this series has.', 'theMuppetShow.mp4'),
+(16, 'batmanCover.jpg', 'Batman', '1966', '1 season', 'Eccentric Gotham City tycoon Bruce Wayne dons tights to fight crime as Batman, aided by pal Dick Ward as equally Spandex-clad Robin, in this \'60s camp classic. Together, they fight evildoers such as the Penguin, the Joker, the Riddler, Egghead, Catwoman and Mr. Freeze.', 'batman.mp4'),
+(17, 'lostInSpaceCover.jpg', 'Lost In Space', '1965', '3 seasons', 'The Robinson family was supposed to set off on a five-year mission to explore a distant planet, but an act of sabotage by the scheming Dr. Zachary Smith -- who managed to get himself trapped aboard the spaceship -- leaves them adrift in space for three years. The Robinsons, pilot Don West, Dr. Smith and their trusty robot move from planet to planet, always searching for a way to return to Earth.', 'lostInSpace.mp4'),
+(18, 'theAddamsFamilyCover.jpg', 'The Addams Family', '1964', '2 seasons', 'Morticia and Gomez Addams head a perplexingly macabre family whose members include a giant named Lurch, who acts as doorman, a disembodied hand named Thing, not-quite-right son Pugsley and morose daughter Wednesday.', 'theAddamsFamily.mp4'),
+(19, 'starTrekCover.jpg', 'Star Trek', '1966', '3 seasons', 'James T Kirk, who is the captain of the Starship Enterprise, explores the whole galaxy with his crew and goes on several adventures as they fight evil forces together.', 'starTrek.mp4'),
+(20, 'theFlintstonesCover.jpg', 'The Flintstones', '1960', '6 seasons', 'Fred Flintsone, a modern stone-age man, always finds himself thrown into a series of misadventures.', 'theFlintstones.mp4'),
+(21, 'iLoveLucyCover.jpg', 'I Love Lucy', '1951', '6 seasons', 'Lucy Ricardo is the wacky wife of Cuban bandleader Ricky Ricardo. Living in New York, Ricky tries to succeed in show business while Lucy -- always trying to help -- usually manages to get in some kind of trouble that drives Ricky crazy. Their best friends are Fred and Ethel Mertz, who are also their landlords. Usually, Ethel becomes Lucy\'s less-than-willing partner in crime. Ricky and Lucy welcomed little Ricky in 1953, whose birth was a national TV event. Later in the show\'s run, the Ricardos (and the Mertzes) moved to Hollywood, where Ricky tried to become a movie star.', 'iLoveLucy.mp4'),
+(22, 'theCiscoKidCover.jpg', 'The Cisco Kid', '1950', '6 seasons', 'The Cisco Kid and his English-mangling sidekick Pancho travel the old west in the grand tradition of the Lone Ranger, righting wrongs and fighting injustice wherever they find it.', 'theCiscoKid.mp4'),
+(23, 'alfredHitchcockPresentsCover.jpg', 'Alfred Hitchcock Presents', '1955', '7 seasons', 'The familiar \"plink, plink\" of the theme song, accompanied by the line drawing of a man in profile immediately identifies the show as \"Alfred Hitchcock Presents.\" The famed director opens almost every episode with the words \"Good evening ...\" After a joke -- usually about the evening\'s sponsor -- Hitchcock lays the groundwork for that episode\'s freestanding story of suspense and terror.', 'alfredHitchcockPresents.mp4'),
+(24, 'adventuresOfSupermanCover.jpg', 'Adventures of Superman', '1952', '6 seasons', 'It\'s a bird! It\'s a plane! It\'s a syndicated TV adaptation of the beloved DC Comics superhero! You know the drill: When he isn\'t fighting for truth, justice and the American way, the man in tights dons a suit and glasses for his secret identity as Daily Planet newspaper reporter Clark Kent, who works alongside friends Lois Lane and Jimmy Olsen for gruff boss Perry White.', 'adventuresOfSuperman.mp4'),
+(25, 'sherlockHolmesCover.jpg', 'Sherlock Holmes', '1954', '2 seasons', 'A television adaptation of some of Sir Arthur Conan Doyle\'s popular stories.', 'sherlockHolmes.mp4');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_urating`
 --
 
@@ -1040,8 +1127,17 @@ CREATE TABLE `tbl_user` (
   `user_pass` varchar(250) NOT NULL,
   `user_email` varchar(250) NOT NULL,
   `user_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_ip` varchar(50) NOT NULL DEFAULT 'no'
+  `user_ip` varchar(50) NOT NULL DEFAULT 'no',
+  `user_admin` tinyint(4) DEFAULT NULL,
+  `user_access` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_name`, `user_pass`, `user_email`, `user_date`, `user_ip`, `user_admin`, `user_access`) VALUES
+(1, 'trevor', 'user1', 'password', 't@t.com', '2019-02-01 19:07:35', '::1', 1, 5);
 
 --
 -- Indexes for dumped tables
@@ -1133,10 +1229,22 @@ ALTER TABLE `tbl_mov_studio`
   ADD PRIMARY KEY (`mov_studio_id`);
 
 --
+-- Indexes for table `tbl_music`
+--
+ALTER TABLE `tbl_music`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `tbl_studio`
 --
 ALTER TABLE `tbl_studio`
   ADD PRIMARY KEY (`studio_id`);
+
+--
+-- Indexes for table `tbl_television`
+--
+ALTER TABLE `tbl_television`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `tbl_urating`
@@ -1176,7 +1284,7 @@ ALTER TABLE `tbl_comments`
 -- AUTO_INCREMENT for table `tbl_country`
 --
 ALTER TABLE `tbl_country`
-  MODIFY `country_id` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `country_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 
 --
 -- AUTO_INCREMENT for table `tbl_director`
@@ -1200,7 +1308,7 @@ ALTER TABLE `tbl_language`
 -- AUTO_INCREMENT for table `tbl_movies`
 --
 ALTER TABLE `tbl_movies`
-  MODIFY `movies_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `movies_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tbl_mov_cast`
@@ -1239,10 +1347,22 @@ ALTER TABLE `tbl_mov_studio`
   MODIFY `mov_studio_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `tbl_music`
+--
+ALTER TABLE `tbl_music`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `tbl_studio`
 --
 ALTER TABLE `tbl_studio`
   MODIFY `studio_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `tbl_television`
+--
+ALTER TABLE `tbl_television`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_urating`
@@ -1254,7 +1374,7 @@ ALTER TABLE `tbl_urating`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
