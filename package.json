@@ -1,0 +1,24 @@
+{
+  "name": "s_wells_j_miller_rokuflashback",
+  "version": "1.0.0",
+  "description": "Roku Flashback App",
+  "main": "server.js",
+  "scripts": {
+    "start-server": "nodemon server",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmillermedia/s_wells_j_miller_RokuFlashback.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmillermedia/s_wells_j_miller_RokuFlashback/issues"
+  },
+  "homepage": "https://github.com/jmillermedia/s_wells_j_miller_RokuFlashback#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
