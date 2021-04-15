@@ -5,26 +5,27 @@ const router = express.Router();
 
 // import the sql connection
 const connect = require("../config/sqlConfig");
+const { route } = require('./ums');
 
 router.get("/", (req, res) => {
     // res.json = echo json encode(...) in PHP
-    res.json({message: "you hit the api route!"});
+    res.json({ message: "you hit the api route!" });
 });
 
 router.get("/users", (req, res) => {
     // run SQL query here
     // res.json(query result here);
-    res.json({message: "all users route"});
+    res.json({ message: "all users route" });
 });
 
 router.get("/movies", (req, res) => {
     connect.getConnection(function(err, connection) { // this is a longhand version to connect from mySQL NPM module
         if (err) throw err; // not connected!
         // Use the connection
-        connection.query('SELECT * FROM tbl_movies', function (error, results) {
-          // When done with the connection, release it.
+        connection.query('SELECT * FROM tbl_movies', function(error, results) {
+            // When done with the connection, release it.
             connection.release();
-          // Handle error after the release.
+            // Handle error after the release.
             if (error) throw error;
 
             res.json(results);
@@ -36,7 +37,7 @@ router.get("/movies", (req, res) => {
 // this is equivalent to $)GET_["id"] (req.params.id)
 // you're passing the id via the route: /api/movies/1, api/movies/20, etc.
 router.get("/movies/:id", (req, res) => {
-    connect.query(`SELECT * FROM tbl_movies WHERE movies_id=${req.params.id}`, function (error, results) { // this is the shorthand, but functions the same as the longhand above.
+    connect.query(`SELECT * FROM tbl_movies WHERE movies_id=${req.params.id}`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
         if (error) throw error;
         console.log("results", results);
 
@@ -58,7 +59,33 @@ WHERE
 AND
 	g.genre_name = '${req.params.genre}'
 GROUP BY
-    m.movies_id`, function (error, results) { // this is the shorthand, but functions the same as the longhand above.
+    m.movies_id`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
+        if (error) throw error;
+        console.log("results", results);
+        res.json(results);
+    });
+});
+
+// movie genres route
+router.get("/genres/movie", (req, res) => {
+    connect.query(`SELECT * FROM tbl_genre;`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
+        if (error) throw error;
+        console.log("results", results);
+        res.json(results);
+    });
+});
+
+router.get("/genres/television", (req, res) => {
+    connect.query(`SELECT * FROM tbl_genre;`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
+        if (error) throw error;
+        console.log("results", results);
+        res.json(results);
+    });
+});
+
+
+router.get("/genres/music", (req, res) => {
+    connect.query(`SELECT * FROM tbl_musicgenres;`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
         if (error) throw error;
         console.log("results", results);
         res.json(results);
@@ -69,7 +96,7 @@ GROUP BY
 router.get("/television", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-        connection.query('SELECT * FROM tbl_television', function (error, results) {
+        connection.query('SELECT * FROM tbl_television', function(error, results) {
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -81,7 +108,7 @@ router.get("/television", (req, res) => {
 router.get("/television/:id", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-        connection.query(`SELECT * FROM tbl_television WHERE ID=${req.params.id}`, function (error, results) {
+        connection.query(`SELECT * FROM tbl_television WHERE ID=${req.params.id}`, function(error, results) {
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -103,7 +130,7 @@ AND
 	g.genre_name = '${req.params.genre}'
 GROUP BY
     t.ID
-`, function (error, results) {
+`, function(error, results) {
         if (error) throw error;
         console.log("results", results);
         res.json(results);
@@ -113,7 +140,7 @@ GROUP BY
 router.get("/music", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-        connection.query('SELECT * FROM tbl_music', function (error, results) {
+        connection.query('SELECT * FROM tbl_music', function(error, results) {
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -124,7 +151,7 @@ router.get("/music", (req, res) => {
 router.get("/music/:id", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-        connection.query(`SELECT * FROM tbl_music WHERE ID=${req.params.id}`, function (error, results) {
+        connection.query(`SELECT * FROM tbl_music WHERE ID=${req.params.id}`, function(error, results) {
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -146,7 +173,19 @@ AND
 	g.genre_name = '${req.params.genre}'
 GROUP BY
     m.ID
-    `, function (error, results) {
+    `, function(error, results) {
+        if (error) throw error;
+        console.log("results", results);
+        res.json(results);
+    });
+});
+
+
+router.get("/genres", (req, res) => {
+    connect.query(`
+        SELECT *, genre_name as name FROM tbl_genre
+        UNION
+        SELECT *, CONCAT(genre_name, ' Music') FROM tbl_musicgenres`, (error, results) => {
         if (error) throw error;
         console.log("results", results);
         res.json(results);
