@@ -7,7 +7,7 @@ const router = express.Router();
 const connect = require("../config/sqlConfig");
 
 router.use(express.json());
-router.use(express.urlencoded({extended: false}));
+router.use(express.urlencoded({ extended: false }));
 
 router.post('/admin/login', (req, res) => {
     // console.log(req.body.username, req.body.password);
@@ -16,8 +16,8 @@ router.post('/admin/login', (req, res) => {
 
         if (row.length) {
             res.status(200).json(row[0]);
-        }  else {
-            res.status(404).res.json({failure: true, message: 'user not found'});
+        } else {
+            res.status(404).json({ failure: true, message: 'user not found' });
         }
     });
 })
