@@ -47,19 +47,34 @@ router.get("/movies/:id", (req, res) => {
 
 // movie genres route
 router.get("/movies/genre/:genre", (req, res) => {
-    connect.query(`SELECT
-    m.*,
-    GROUP_CONCAT(g.genre_name) AS GENRE
-FROM
-    tbl_movies AS m,
-    tbl_genre AS g,
-    tbl_mov_genre AS m_g
-WHERE
-    m.movies_id = m_g.movie_ID AND g.genre_id = m_g.genre_ID
-AND
-	g.genre_name = '${req.params.genre}'
-GROUP BY
-    m.movies_id`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
+    connect.query(`
+    SELECT 
+        movies.*,
+        GROUP_CONCAT(genre.genre_name) AS genre
+    FROM tbl_movies as movies
+    JOIN tbl_mov_genre as mg ON movies.movies_ID = mg.movie_ID
+    JOIN tbl_genre as genre ON mg.genre_ID = genre.genre_id
+    WHERE genre.genre_id = ${req.params.genre}
+    GROUP BY movies.movies_ID
+    `, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
+        if (error) throw error;
+        console.log("results", results);
+        res.json(results);
+    });
+});
+
+// movie genres route
+router.get("/television/genre/:genre", (req, res) => {
+    connect.query(`
+    SELECT 
+        tv.*,
+        GROUP_CONCAT(genre.genre_name) AS genre
+    FROM tbl_television as tv
+    JOIN tbl_tel_genre as tg ON tv.ID = tg.television_ID
+    JOIN tbl_genre as genre ON tg.genre_ID = genre.genre_id
+    WHERE genre.genre_id = ${req.params.genre}
+    GROUP BY tv.ID
+    `, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
         if (error) throw error;
         console.log("results", results);
         res.json(results);
@@ -160,19 +175,16 @@ router.get("/music/:id", (req, res) => {
 });
 
 router.get("/music/genre/:genre", (req, res) => {
-    connect.query(`SELECT
-    m.*,
-    GROUP_CONCAT(g.genre_name) AS GENRE
-FROM
-    tbl_music AS m,
-    tbl_musicgenres AS g,
-    tbl_mus_genre AS m_g
-WHERE
-    m.ID = m_g.music_ID AND g.ID = m_g.genre_ID
-AND
-	g.genre_name = '${req.params.genre}'
-GROUP BY
-    m.ID
+    console.log(req.params.genre)
+    connect.query(`
+    SELECT 
+	    music.*,
+        GROUP_CONCAT(genre.genre_name) AS GENRE
+    FROM tbl_music as music
+    JOIN tbl_mus_genre as mg ON music.ID = mg.music_ID
+    JOIN tbl_musicgenres as genre ON mg.genre_ID = genre.id
+    WHERE genre.id = ${req.params.genre}
+    GROUP BY music.ID
     `, function(error, results) {
         if (error) throw error;
         console.log("results", results);
