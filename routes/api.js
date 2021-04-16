@@ -37,11 +37,7 @@ router.get("/movies", (req, res) => {
 // this is equivalent to $)GET_["id"] (req.params.id)
 // you're passing the id via the route: /api/movies/1, api/movies/20, etc.
 router.get("/movies/:id", (req, res) => {
-<<<<<<< HEAD
     connect.query(`SELECT * FROM tbl_movies WHERE movies_id=${req.params.id}`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
-=======
-    connect.query(`SELECT * FROM tbl_movies WHERE movies_id=${req.params.id}`, function (error, results) { // this is the shorthand, but functions the same as the longhand above.
->>>>>>> main
         if (error) throw error;
         console.log("results", results);
 
@@ -51,7 +47,6 @@ router.get("/movies/:id", (req, res) => {
 
 // movie genres route
 router.get("/movies/genre/:genre", (req, res) => {
-<<<<<<< HEAD
     connect.query(`
     SELECT 
         movies.*,
@@ -106,21 +101,6 @@ router.get("/genres/television", (req, res) => {
 
 router.get("/genres/music", (req, res) => {
     connect.query(`SELECT * FROM tbl_musicgenres;`, function(error, results) { // this is the shorthand, but functions the same as the longhand above.
-=======
-    connect.query(`SELECT
-    m.*,
-    GROUP_CONCAT(g.genre_name) AS GENRE
-FROM
-    tbl_movies AS m,
-    tbl_genre AS g,
-    tbl_mov_genre AS m_g
-WHERE
-    m.movies_id = m_g.movie_ID AND g.genre_id = m_g.genre_ID
-AND
-	g.genre_name = '${req.params.genre}'
-GROUP BY
-    m.movies_id`, function (error, results) { // this is the shorthand, but functions the same as the longhand above.
->>>>>>> main
         if (error) throw error;
         console.log("results", results);
         res.json(results);
@@ -131,11 +111,7 @@ GROUP BY
 router.get("/television", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-<<<<<<< HEAD
         connection.query('SELECT * FROM tbl_television', function(error, results) {
-=======
-        connection.query('SELECT * FROM tbl_television', function (error, results) {
->>>>>>> main
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -147,11 +123,7 @@ router.get("/television", (req, res) => {
 router.get("/television/:id", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-<<<<<<< HEAD
         connection.query(`SELECT * FROM tbl_television WHERE ID=${req.params.id}`, function(error, results) {
-=======
-        connection.query(`SELECT * FROM tbl_television WHERE ID=${req.params.id}`, function (error, results) {
->>>>>>> main
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -173,11 +145,7 @@ AND
 	g.genre_name = '${req.params.genre}'
 GROUP BY
     t.ID
-<<<<<<< HEAD
 `, function(error, results) {
-=======
-`, function (error, results) {
->>>>>>> main
         if (error) throw error;
         console.log("results", results);
         res.json(results);
@@ -187,11 +155,7 @@ GROUP BY
 router.get("/music", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-<<<<<<< HEAD
         connection.query('SELECT * FROM tbl_music', function(error, results) {
-=======
-        connection.query('SELECT * FROM tbl_music', function (error, results) {
->>>>>>> main
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -202,11 +166,7 @@ router.get("/music", (req, res) => {
 router.get("/music/:id", (req, res) => {
     connect.getConnection(function(err, connection) {
         if (err) throw err;
-<<<<<<< HEAD
         connection.query(`SELECT * FROM tbl_music WHERE ID=${req.params.id}`, function(error, results) {
-=======
-        connection.query(`SELECT * FROM tbl_music WHERE ID=${req.params.id}`, function (error, results) {
->>>>>>> main
             connection.release();
             if (error) throw error;
             res.json(results);
@@ -215,7 +175,6 @@ router.get("/music/:id", (req, res) => {
 });
 
 router.get("/music/genre/:genre", (req, res) => {
-<<<<<<< HEAD
     console.log(req.params.genre)
     connect.query(`
     SELECT 
@@ -241,24 +200,6 @@ router.get("/genres", (req, res) => {
         SELECT *, CONCAT(genre_name, ' Music') FROM tbl_musicgenres`, (error, results) => {
         if (error) throw error;
         console.log("results", results);
-=======
-    connect.query(`SELECT
-    m.*,
-    GROUP_CONCAT(g.genre_name) AS GENRE
-FROM
-    tbl_music AS m,
-    tbl_musicgenres AS g,
-    tbl_mus_genre AS m_g
-WHERE
-    m.ID = m_g.music_ID AND g.ID = m_g.genre_ID
-AND
-	g.genre_name = '${req.params.genre}'
-GROUP BY
-    m.ID
-    `, function (error, results) {
-        if (error) throw error;
-        console.log("results", results);
->>>>>>> main
         res.json(results);
     });
 });
